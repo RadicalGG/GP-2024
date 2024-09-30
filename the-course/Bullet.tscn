@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://s21pauxkn4v3"]
+
+[ext_resource type="Texture2D" uid="uid://brv4tgqgbf5ij" path="res://assets/PNG/Sprites/Meteors/spaceMeteors_003.png" id="1_nxxqq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="bullet" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="bullet"]
+texture = ExtResource("1_nxxqq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet"]

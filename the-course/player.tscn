@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://po0pyryvq8o"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_8x7ow"]
+[ext_resource type="Texture2D" uid="uid://di3rjykhc45vq" path="res://assets/PNG/Sprites/Ships/spaceShips_009.png" id="2_cm8u7"]
+[ext_resource type="PackedScene" uid="uid://s21pauxkn4v3" path="res://Bullet.tscn" id="2_jixpm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pv0gw"]
+radius = 56.0803
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("bullet_spawn_point")]
+position = Vector2(572, 301)
+script = ExtResource("1_8x7ow")
+bullet_scene = ExtResource("2_jixpm")
+bullet_spawn_point = NodePath("bullet_spawn_point")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cm8u7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 0.76)
+shape = SubResource("CircleShape2D_pv0gw")
+
+[node name="bullet_spawn_point" type="Marker2D" parent="."]
+position = Vector2(0, 57)
