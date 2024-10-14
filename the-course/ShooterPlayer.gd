@@ -1,49 +1,30 @@
 extends RigidBody2D
 
-@export var power:float = 0
-@export var rot_power:float = 2000
-
 @export var bullet_scene:PackedScene
-@export var bullet_spawn:Node2D
+@export var bullet_spawn_point:Node2D
 
+const SPEED = 500.0
+const JUMP_VELOCITY = -400.0
 
+const TURN_RATE = 180
 
-var f
-
-var can_fire = true;
-
-func _ready():
-	# bullet = load("res://bullet.tscn")
-	# bullet_spawn = get_node("shoot_point")
-	
-	pass
-	
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	
 	var r = Input.get_axis("turn_left", "turn_right")
-	apply_torque(rot_power * r)
-	
-	f = Input.get_axis("move_backwards", "move_forwards")
-	
-	var force = power * -transform.y * f
-	# DebugDraw2D.set_text("Force", force)
-	if (force.length() > 0):
-		apply_central_force(force)
-		pass
-	# print("right: " + str(transform.x))
-	# print("up:" + str(transform.y))
-	
-	if Input.is_action_pressed("fire") and can_fire:
-		var b = bullet_scene.instantiate()
-		b.global_position = bullet_spawn.global_position
-		b.global_rotation = bullet_spawn.global_rotation
-		get_tree().get_root().add_child(b) 
-		can_fire = false
-		$Timer.start()
-	
-	pass
-	
+	print(r)
 
-func _on_timer_timeout():
-	can_fire = true
-	pass # Replace with function body.
+	var rot = deg_to_rad(r * TURN_RATE * delta)
+	rotate(rot)
+	
+	var f = Input.get_axis("move_backwards", "move_forwards")
+
+	var vel = transform.y * f * SPEED
+	print(transform.y)
+	velocity = vel
+	
+	if Input.is_action_pressed("fire"):
+		var b = bullet_scene.instantiate()
+		b.global_position = bullet_spawn_point.global_position
+		get_parent().add_child(b)
+	
+	move_and_slide()
