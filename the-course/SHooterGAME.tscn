@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cok8bg5bsqym4"]
+
+[ext_resource type="Texture2D" uid="uid://2v8yl7j6etc2" path="res://assets/PNG/Sprites/Rockets/spaceRockets_002.png" id="1_g0nrn"]
+[ext_resource type="Script" path="res://ShooterPlayer.gd" id="1_m3oxu"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(608, 316)
+
+[node name="Player" type="RigidBody2D" parent="."]
+script = ExtResource("1_m3oxu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_g0nrn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+position = Vector2(-543, -344)
+polygon = PackedVector2Array(527, 496, 512, 458, 466, 447, 512, 377, 509, 262, 541, 190, 571, 242, 578, 383, 620, 447, 577, 461, 558, 499)
