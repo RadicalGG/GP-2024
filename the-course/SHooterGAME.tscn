@@ -1,17 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://cok8bg5bsqym4"]
 
-[ext_resource type="Texture2D" uid="uid://2v8yl7j6etc2" path="res://assets/PNG/Sprites/Rockets/spaceRockets_002.png" id="1_g0nrn"]
-[ext_resource type="Script" path="res://ShooterPlayer.gd" id="1_m3oxu"]
+[ext_resource type="Texture2D" uid="uid://dyqita7f88aa2" path="res://assets/PNG/Sprites X2/Rockets/spaceRockets_002.png" id="1_6kvqb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u266o"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(608, 316)
+position = Vector2(596, 313)
+scale = Vector2(1.85729, 1.36143)
 
-[node name="Player" type="RigidBody2D" parent="."]
-script = ExtResource("1_m3oxu")
+[node name="Shooter" type="CharacterBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_g0nrn")
+[node name="Sprite2D" type="Sprite2D" parent="Shooter"]
+position = Vector2(0, -1)
+scale = Vector2(0.301565, 0.220018)
+texture = ExtResource("1_6kvqb")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
-position = Vector2(-543, -344)
-polygon = PackedVector2Array(527, 496, 512, 458, 466, 447, 512, 377, 509, 262, 541, 190, 571, 242, 578, 383, 620, 447, 577, 461, 558, 499)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shooter"]
+position = Vector2(1, 4)
+scale = Vector2(2.56556, 4.7306)
+shape = SubResource("CapsuleShape2D_u266o")

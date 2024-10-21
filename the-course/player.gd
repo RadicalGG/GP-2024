@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	var rot = deg_to_rad(r * TURN_RATE * delta)
 	rotate(rot)
 	
-	var f = Input.get_axis("move_backwards", "move_forwards")
+	var f = Input.get_axis("move_forwards", "move_backwards")
 
 	var vel = transform.y * f * SPEED
 	print(transform.y)
