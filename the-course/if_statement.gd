@@ -20,7 +20,10 @@ func _draw() -> void:
 		draw_rect(Rect2(h, 0, h, r.size.x), Color.RED, true, 10, true)
 		draw_rect(Rect2(0, h, h, r.size.x), Color.YELLOW, true, 10, true)
 
-
+if else:
+	draw_rect(Rect2(0, 0, h, r.size.x), Color.BLUE, true, 10, true)
+		draw_rect(Rect2(h, 0, h, r.size.x), Color.RED, true, 10, true)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
